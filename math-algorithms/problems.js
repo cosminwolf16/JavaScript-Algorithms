@@ -9,7 +9,7 @@ function getMin(numbers) {
   return currentMin;
 }
 
-const arr = [15, 20, 33, 67, 2, 9, 100];
+const arr = [15, 20, 33, 67, 2, 9, 100, 1];
 // console.log(getMin(arr));
 
 // The second algorithm should take a number as input and return true if its and even number or false for odd number
