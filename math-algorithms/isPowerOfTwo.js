@@ -1,23 +1,6 @@
-function isPowerOfTwo(number) {
-  let dividedNumber = number;
-  if (number < 1) {
-    return false;
-  }
-  while (dividedNumber !== 1) {
-    if (dividedNumber % 2 !== 0) {
-      return false;
-    }
-    dividedNumber /= 2;
-  }
-  return true;
-}
+function isPowerOfTwo(number) {}
 
-function isPowerOfTwo2(number) {
-  if (number < 1) {
-    return false;
-  }
-  return (number & (number - 1)) === 0;
-}
+function isPowerOfTwo2(number) {}
 
 // Best Case: number 13 => O(1)
 // Average Case: O(log n)
