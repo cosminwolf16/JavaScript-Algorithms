@@ -1,9 +1,9 @@
 // The first algorithm should take an array of numbers as input and return the minimum value in the array (the smallest number)
 function getMin(numbers) {
   let currentMin = numbers[0];
-  for (const num of numbers) {
-    if (currentMin > num) {
-      currentMin = num;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] < currentMin) {
+      currentMin = numbers[i];
     }
   }
   return currentMin;
@@ -20,7 +20,7 @@ function isEven(n) {
   return false;
 }
 
-// console.log(isEven(2));
-// console.log(isEven(3));
-// console.log(isEven(4));
-// console.log(isEven(5));
+console.log(isEven(2));
+console.log(isEven(3));
+console.log(isEven(4));
+console.log(isEven(5));
