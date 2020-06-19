@@ -1,9 +1,8 @@
 function findElement(sortedArr, element) {
   let startIndex = 0;
-  let endIndex = sortedArr.length - 1;
+  let endIndex = arr.length - 1;
 
   while (startIndex <= endIndex) {
-    console.log('RUNNING');
     const middleIndex = startIndex + Math.floor((endIndex - startIndex) / 2);
 
     if (element === sortedArr[middleIndex]) {
@@ -18,6 +17,6 @@ function findElement(sortedArr, element) {
   }
 }
 
-const arr = [1, 5, 9, 13, 99, 100]; //
+const arr = [1, 5, 9, 13, 99, 53, 2, 3, 74, 100]; //
 
-console.log(findElement(arr, 5));
+console.log(findElement(arr, 100));
