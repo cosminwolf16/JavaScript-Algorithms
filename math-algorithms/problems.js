@@ -10,7 +10,7 @@ function getMin(numbers) {
 }
 
 const arr = [15, 20, 33, 67, 2, 9, 100, 1];
-console.log(getMin(arr));
+// console.log(getMin(arr));
 
 // The second algorithm should take a number as input and return true if its and even number or false for odd number
 function isEven(n) {
@@ -24,3 +24,18 @@ function isEven(n) {
 // console.log(isEven(3));
 // console.log(isEven(4));
 // console.log(isEven(5));
+
+function checkArr(arr) {
+  let dictionar = {};
+
+  for (const num of arr) {
+    if (dictionar[num]) {
+      dictionar[num]++;
+    } else {
+      dictionar[num] = 1;
+    }
+  }
+  return dictionar;
+}
+
+console.log(checkArr([1, 2, 3, 4, 1, 2, 3, 1, 1, 5, 5]));
