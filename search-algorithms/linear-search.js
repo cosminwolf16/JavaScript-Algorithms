@@ -1,14 +1,10 @@
-function findElement(list, element, comparatorFc) {
+function findElement(elements, element, comparatorFc) {
   let index = 0;
-  for (const value of list) {
-    if (
-      typeof element === 'object' &&
-      element !== null &&
-      comparatorFc(element, value)
-    ) {
+  for (const el of elements) {
+    if (typeof el === 'object' && el !== null && comparatorFc(el, element)) {
       return index;
     }
-    if (value === element) {
+    if (el === element) {
       return index;
     }
     index++;
@@ -16,7 +12,7 @@ function findElement(list, element, comparatorFc) {
 }
 
 const list = [1, 9, 10, 55, -54];
-const beeings = [
+const objects = [
   { name: 'Cosmin', age: 21 },
   { name: 'George', age: 27 },
   { name: 'Mircea', age: 21 },
@@ -24,7 +20,7 @@ const beeings = [
 ];
 
 console.log(
-  findElement(beeings, { name: 'Cosmin', age: 21 }, (el, it) => {
-    return el.name === it.name;
+  findElement(objects, { name: 'Mircea', age: 21 }, (el, element) => {
+    return el.name === element.name && el.age === element.age;
   })
 );
