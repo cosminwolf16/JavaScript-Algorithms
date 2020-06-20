@@ -1,11 +1,9 @@
 function isPowerOfTwo(number) {
-  let dividedNumber = number;
-
-  while (dividedNumber !== 1) {
-    if (dividedNumber % 2 !== 0) {
+  while (number !== 1) {
+    if (number % 2 !== 0) {
       return false;
     }
-    dividedNumber /= 2;
+    number /= 2;
   }
   return true;
 }
