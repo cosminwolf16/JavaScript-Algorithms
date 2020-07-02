@@ -1,41 +1,36 @@
-function sort(arr) {
-  const copiedArray = [...arr];
-  console.log('FUNCTION STARTING');
-  console.log(arr);
+function sort(list) {
+  const copiedList = [...list];
 
-  if (copiedArray.length <= 1) {
-    console.log('ONLY ONE ITEM - RETURNING');
-    console.log(copiedArray);
-    return copiedArray;
+  // Daca arrayul are 1 sau mai putine elemente, returneazal in starea initiala.
+  if (copiedList.length <= 1) {
+    return copiedList;
   }
-
-  const smallerElementsArray = [];
-  const biggerElementsArray = [];
-  const pivotElement = copiedArray.shift();
-  const centerElementsArray = [pivotElement];
-
-  while (copiedArray.length) {
-    const currentElement = copiedArray.shift();
+  // Se initializeaza cele 3 arrayuri, small, big si middle numbers(cu pivotul in middle), plus
+  // elementul pivot extras primul din array
+  const smallElementsList = [];
+  const largeElementsList = [];
+  const pivotElement = copiedList.shift();
+  const middleElementsList = [pivotElement];
+  // in timp ce arrayul contine ceva extrage elementul curent, adica primul din lista, si verifica
+  // daca elementul curent ii egal cu pivotul sa se duca in middle elements si daca ii mai mic in small elemenets, daca nu in large.
+  while (copiedList.length) {
+    const currentElement = copiedList.shift();
     if (currentElement === pivotElement) {
-      centerElementsArray.push(currentElement);
+      middleElementsList.push(currentElement);
     } else if (currentElement < pivotElement) {
-      smallerElementsArray.push(currentElement);
+      smallElementsList.push(currentElement);
     } else {
-      biggerElementsArray.push(currentElement);
+      largeElementsList.push(currentElement);
     }
   }
-  console.log('AFTER WHILE');
-  console.log(smallerElementsArray);
-  console.log(centerElementsArray);
-  console.log(biggerElementsArray);
-
-  const smallerElementsSortedArray = sort(smallerElementsArray);
-  const biggerElemenetsSortedArray = sort(biggerElementsArray);
-  return smallerElementsSortedArray.concat(
-    centerElementsArray,
-    biggerElemenetsSortedArray
+  // sorteaza lista small si lista mare dupa care returnezi lista mica impreuna cu middle si large
+  const sortedSmallElementsList = sort(smallElementsList);
+  const sortedLargeElementsList = sort(largeElementsList);
+  return sortedSmallElementsList.concat(
+    middleElementsList,
+    sortedLargeElementsList
   );
 }
 
-const output = sort([10, 5, 2, 3, 1]);
+const output = sort([10, 9, 8, 7, 6, 5, 4, 3, 2, 1]);
 console.log(output);
