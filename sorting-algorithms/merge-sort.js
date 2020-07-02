@@ -1,17 +1,17 @@
 function sort(arr) {
   console.log('FUNCTION START');
   console.log(arr);
-
+  // se verifica daca marimea listei e mai mica decat 2, daca da, se returneaza lista initiala.
   if (arr.length < 2) {
     return arr;
   }
-
+  // se verifica daca lungimea listei este egala cu 2, si daca da, se returneaza lista sortata.
   if (arr.length === 2) {
     console.log('EXACTLY 2 ITEMS');
     console.log(arr[0] > arr[1] ? [arr[1], arr[0]] : arr);
     return arr[0] > arr[1] ? [arr[1], arr[0]] : arr;
   }
-
+  // se afla middle indexul listei si se creeaza lista 2 liste, left si right. Dupa care se sorteaza
   const middle = Math.floor(arr.length / 2);
   const leftArray = arr.slice(0, middle);
   const rightArray = arr.slice(middle);
@@ -22,11 +22,16 @@ function sort(arr) {
   console.log('AFTER RECURSIVE STEP');
   console.log(leftSortedArray);
   console.log(rightSortedArray);
-
+  // Se initializeaza arrayul final impreuna cu indexul 0 de la lista left si lista right.
   const mergedArr = [];
   let leftArrIndex = 0;
   let rightArrIndex = 0;
-
+  // atata timp cat indexul stang e mai mic decat lungimea listei sortate left sau
+  // indexul drept e mai mic decat lungimea listei sortate right
+  // daca indexul listei left e mai mare sau egal cu lungimea listei sortate left sau
+  // daca indexul curent din lista sortata left e mai mare decat indexul curent din lista sortata right
+  // atunci se adauga in arrayul final indexul curent din lista sortata right
+  // daca nu se adauga in arryul final indexul curent din lista left
   while (
     leftArrIndex < leftSortedArray.length ||
     rightArrIndex < rightSortedArray.length
