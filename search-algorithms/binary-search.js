@@ -8,7 +8,7 @@ function findElement(sortedArr, element) {
     if (sortedArr[middleIndex] === element) {
       return middleIndex;
     }
-    if (sortedArr[middleIndex] < element) {
+    if (sortedArr[middleIndex] > element) {
       startIndex = middleIndex + 1;
     } else {
       endIndex = middleIndex - 1;

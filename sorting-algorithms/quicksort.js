@@ -1,4 +1,4 @@
-function sort(list) {
+function quickSort(list) {
   const copiedList = [...list];
 
   if (copiedList.length < 2) {
