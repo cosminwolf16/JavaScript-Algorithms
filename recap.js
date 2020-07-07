@@ -1,38 +1,29 @@
-function sort(arr) {
-  if (arr.length < 2) {
-    return arr;
-  }
+function cartProduct(setA, setB) {
+  const product = [];
 
-  if (arr.length === 2) {
-    return arr[0] > arr[1] ? [arr[1], arr[0]] : arr;
-  }
+  for (let setAEl of setA) {
+    if (!Array.isArray(setAEl)) {
+      setAEl = [setAEl];
+    }
 
-  const middle = Math.floor(arr.length / 2);
-  const leftArray = arr.slice(0, middle);
-  const rightArray = arr.slice(middle);
-
-  const sortedLeftArray = sort(leftArray);
-  const sortedRightArray = sort(rightArray);
-
-  const mergedArr = [];
-  let leftIndex = 0;
-  let rightIndex = 0;
-
-  while (
-    leftIndex < sortedLeftArray.length ||
-    rightIndex < sortedRightArray.length
-  ) {
-    if (
-      leftIndex >= sortedLeftArray.length ||
-      sortedLeftArray[leftIndex] > sortedRightArray[rightIndex]
-    ) {
-      mergedArr.push(sortedRightArray[rightIndex]);
-      rightIndex++;
-    } else {
-      mergedArr.push(sortedLeftArray[leftIndex]);
-      leftIndex++;
+    for (const setBEl of setB) {
+      product.push([...setAEl, setBEl]);
     }
   }
-  return mergedArr;
+  return product;
 }
-console.log(sort([33, -22, -1, 1, 6, 16, 99]));
+
+function cartesian(...sets) {
+  let tempProduct = sets[0];
+
+  for (let i = 1; i < sets.length; i++) {
+    tempProduct = cartProduct(tempProduct, sets[i]);
+  }
+  return tempProduct;
+}
+
+const colors = ['blue', 'black', 'white'];
+const sizes = ['l', 'm', 's'];
+const styles = ['round neck', 'v neck'];
+
+console.log(cartesian(colors, sizes, styles));

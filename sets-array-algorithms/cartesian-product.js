@@ -1,14 +1,29 @@
 function cartProduct(setA, setB) {
   const product = [];
 
-  for (const setAEl of setA) {
+  for (let setAEl of setA) {
+    if (!Array.isArray(setAEl)) {
+      setAEl = [setAEl];
+    }
+
     for (const setBEl of setB) {
-      product.push([setAEl, setBEl]);
+      product.push([...setAEl, setBEl]);
     }
   }
   return product;
 }
 
+function cartesian(...sets) {
+  let tempProduct = sets[0];
+
+  for (let i = 1; i < sets.length; i++) {
+    tempProduct = cartProduct(tempProduct, sets[i]);
+  }
+  return tempProduct;
+}
+
 const colors = ['blue', 'red'];
-const sizes = ['L', 'M'];
-console.log(cartProduct(colors, sizes)); // [["blue, "m""], ....]
+const sizes = ['L', 'M', 'S', 'XL'];
+const styles = ['round neck', 'v neck'];
+
+console.log(cartesian(colors, sizes, styles)); // [["blue, "m""], ....]
