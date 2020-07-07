@@ -1,4 +1,3 @@
-// Without Repetitions
 function getPermutations(options) {
   const permutations = [];
 
@@ -21,7 +20,6 @@ function getPermutations(options) {
       );
     }
   }
-
   return permutations;
 }
 
