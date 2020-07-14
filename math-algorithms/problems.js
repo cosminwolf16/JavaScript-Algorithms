@@ -1,41 +1,96 @@
-// The first algorithm should take an array of numbers as input and return the minimum value in the array (the smallest number)
-function getMin(numbers) {
-  let currentMin = numbers[0];
-  for (const num of numbers) {
-    if (currentMin > num) {
-      currentMin = num;
+// Divided by 2 algorithm
+function dividedBy2(arr) {
+  let divided = [];
+  for (const number of arr) {
+    if (number % 2 === 0) {
+      divided.push(number);
     }
   }
-  return currentMin;
+  return divided;
 }
+// console.log(dividedBy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 
-const arr = [15, 20, 33, 67, 2, 9, 100, 1];
-// console.log(getMin(arr));
+// Return primes from array
+function returnPrimes(arr) {
+  let primes = [];
 
-// The second algorithm should take a number as input and return true if its and even number or false for odd number
-function isEven(n) {
-  if (n % 2 === 0) {
+  function isPrime(num) {
+    for (let i = num - 1; i > 2; i--) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
     return true;
+  }
+
+  for (const number of arr) {
+    if (isPrime(number)) {
+      primes.push(number);
+    }
+  }
+  return primes;
+}
+// console.log(
+//   returnPrimes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19])
+// );
+
+// Return how many times a number is present in a list
+function howManyTimesNIsPresent(arr, el) {
+  let times = 0;
+  for (const element of arr) {
+    if (element === el) {
+      times++;
+    }
+  }
+  return times;
+}
+// console.log(howManyTimesNIsPresent([1, 1, 3, 4, 5, 6, 7, 8, 8, 1, 3, 5, 1], 1));
+
+// Return true or false if a number is present in a list or not
+function isElPresent(arr, el) {
+  for (const element of arr) {
+    if (element === el) {
+      return true;
+    }
   }
   return false;
 }
+// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 7));
 
-// console.log(isEven(2));
-// console.log(isEven(3));
-// console.log(isEven(4));
-// console.log(isEven(5));
+// Return common elements from two lists
+function commonElements(arr1, arr2) {
+  let commonElements = [];
 
-function checkArr(arr) {
-  let dictionar = {};
-
-  for (const num of arr) {
-    if (dictionar[num]) {
-      dictionar[num]++;
-    } else {
-      dictionar[num] = 1;
+  for (const el1 of arr1) {
+    for (const el2 of arr2) {
+      if (el1 === el2) {
+        commonElements.push(el1);
+      }
     }
   }
-  return dictionar;
+  return commonElements;
 }
+// const list1 = [1, 2, 3, 4, 5, 6, 7];
+// const list2 = [2, 6, 7, 8, 9, 0, 11];
+// console.log(commonElements(list1, list2));
 
-console.log(checkArr([1, 2, 3, 4, 1, 2, 3, 1, 1, 5, 5]));
+// Return common elements and how many times they are present
+function commonElements2(arr1, arr2) {
+  let dict = {};
+
+  for (const el1 of arr1) {
+    for (const el2 of arr2) {
+      if (el1 === el2) {
+        if (el1 in dict) {
+          dict[el1]++;
+        } else {
+          dict[el1] = 1;
+        }
+      }
+    }
+  }
+  return dict;
+}
+// const list1 = [1, 2, 3, 4, 5, 6, 7, 7];
+// const list2 = [2, 6, 7, 8, 9, 0, 11];
+// console.log(commonElements2(list1, list2));
