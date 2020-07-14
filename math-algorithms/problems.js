@@ -13,9 +13,8 @@ function dividedBy2(arr) {
 // Return primes from array
 function returnPrimes(arr) {
   let primes = [];
-
   function isPrime(num) {
-    for (let i = num - 1; i > 2; i--) {
+    for (let i = num - 1; i >= 2; i--) {
       if (num % i === 0) {
         return false;
       }
@@ -37,8 +36,8 @@ function returnPrimes(arr) {
 // Return how many times a number is present in a list
 function howManyTimesNIsPresent(arr, el) {
   let times = 0;
-  for (const element of arr) {
-    if (element === el) {
+  for (const num of arr) {
+    if (num === el) {
       times++;
     }
   }
@@ -48,8 +47,8 @@ function howManyTimesNIsPresent(arr, el) {
 
 // Return true or false if a number is present in a list or not
 function isElPresent(arr, el) {
-  for (const element of arr) {
-    if (element === el) {
+  for (const num of arr) {
+    if (num === el) {
       return true;
     }
   }
@@ -61,10 +60,10 @@ function isElPresent(arr, el) {
 function commonElements(arr1, arr2) {
   let commonElements = [];
 
-  for (const el1 of arr1) {
-    for (const el2 of arr2) {
-      if (el1 === el2) {
-        commonElements.push(el1);
+  for (const number1 of arr1) {
+    for (const number2 of arr2) {
+      if (number1 === number2) {
+        commonElements.push(number1);
       }
     }
   }
@@ -78,19 +77,19 @@ function commonElements(arr1, arr2) {
 function commonElements2(arr1, arr2) {
   let dict = {};
 
-  for (const el1 of arr1) {
-    for (const el2 of arr2) {
-      if (el1 === el2) {
-        if (el1 in dict) {
-          dict[el1]++;
+  for (const number1 of arr1) {
+    for (const number2 of arr2) {
+      if (number1 === number2) {
+        if (number1 in dict) {
+          dict[number1]++;
         } else {
-          dict[el1] = 1;
+          dict[number1] = 1;
         }
       }
     }
   }
   return dict;
 }
-// const list1 = [1, 2, 3, 4, 5, 6, 7, 7];
-// const list2 = [2, 6, 7, 8, 9, 0, 11];
+// const list1 = [1, 2, 3, 4, 5, 6, 7, 7, 1, 1];
+// const list2 = [2, 6, 7, 8, 9, 0, 11, 7, 1, 1];
 // console.log(commonElements2(list1, list2));
