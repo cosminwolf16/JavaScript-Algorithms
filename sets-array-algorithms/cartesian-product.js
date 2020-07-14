@@ -1,16 +1,14 @@
 function cartProduct(setA, setB) {
-  const product = [];
-
+  let products = [];
   for (let setAEl of setA) {
-    if (!Array.isArray(setAEl)) {
-      setAEl = [setAEl];
-    }
-
     for (const setBEl of setB) {
-      product.push([...setAEl, setBEl]);
+      if (!Array.isArray(setAEl)) {
+        setAEl = [setAEl];
+      }
+      products.push([...setAEl, setBEl]);
     }
   }
-  return product;
+  return products;
 }
 
 function cartesian(...sets) {
@@ -22,8 +20,7 @@ function cartesian(...sets) {
   return tempProduct;
 }
 
-const colors = ['blue', 'red'];
-const sizes = ['L', 'M', 'S', 'XL'];
-const styles = ['round neck', 'v neck'];
-
-console.log(cartesian(colors, sizes, styles)); // [["blue, "m""], ....]
+const classes = ['warrior', 'warlock', 'hunter'];
+const races = ['elf', 'orc', 'human'];
+const faction = ['alliance', 'horde'];
+console.log(cartesian(classes, races, faction));
