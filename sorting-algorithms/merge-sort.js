@@ -24,7 +24,7 @@ function sort(arr) {
     rightArrayIndex < rightSortedArray.length
   ) {
     if (
-      leftArrayIndex >= leftSortedArray[leftArrayIndex] ||
+      leftArrayIndex >= leftSortedArray.length ||
       leftSortedArray[leftArrayIndex] > rightSortedArray[rightArrayIndex]
     ) {
       mergedArray.push(rightSortedArray[rightArrayIndex]);
