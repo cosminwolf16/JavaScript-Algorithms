@@ -1,18 +1,19 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
-  let divided = [];
+  let dividedBy2 = [];
   for (const number of arr) {
     if (number % 2 === 0) {
-      divided.push(number);
+      dividedBy2.push(number);
     }
   }
-  return divided;
+  return dividedBy2;
 }
 // console.log(dividedBy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 
 // Return primes from array
 function returnPrimes(arr) {
   let primes = [];
+
   function isPrime(num) {
     for (let i = num - 1; i >= 2; i--) {
       if (num % i === 0) {
@@ -35,26 +36,26 @@ function returnPrimes(arr) {
 
 // Return how many times a number is present in a list
 function howManyTimesNIsPresent(arr, el) {
-  let times = 0;
-  for (const num of arr) {
-    if (num === el) {
-      times++;
+  let result = 0;
+  for (const element of arr) {
+    if (element === el) {
+      result++;
     }
   }
-  return times;
+  return result;
 }
 // console.log(howManyTimesNIsPresent([1, 1, 3, 4, 5, 6, 7, 8, 8, 1, 3, 5, 1], 1));
 
 // Return true or false if a number is present in a list or not
 function isElPresent(arr, el) {
-  for (const num of arr) {
-    if (num === el) {
+  for (const element of arr) {
+    if (element === el) {
       return true;
     }
   }
   return false;
 }
-// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 7));
+// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 5));
 
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
@@ -69,7 +70,7 @@ function commonElements(arr1, arr2) {
   }
   return commonElements;
 }
-// const list1 = [1, 2, 3, 4, 5, 6, 7];
+// const list1 = [1, 2, 3, 4, 5, 6, 7, 11];
 // const list2 = [2, 6, 7, 8, 9, 0, 11];
 // console.log(commonElements(list1, list2));
 
