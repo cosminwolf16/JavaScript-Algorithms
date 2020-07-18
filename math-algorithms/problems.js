@@ -1,28 +1,26 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
-  let dividedBy2 = [];
+  let result = [];
   for (const number of arr) {
     if (number % 2 === 0) {
-      dividedBy2.push(number);
+      result.push(number);
     }
   }
-  return dividedBy2;
+  return result;
 }
 // console.log(dividedBy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 
 // Return primes from array
 function returnPrimes(arr) {
   let primes = [];
-
   function isPrime(num) {
-    for (let i = num - 1; i >= 2; i--) {
+    for (let i = 2; i < num; i++) {
       if (num % i === 0) {
         return false;
       }
     }
     return true;
   }
-
   for (const number of arr) {
     if (isPrime(number)) {
       primes.push(number);
@@ -59,16 +57,15 @@ function isElPresent(arr, el) {
 
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
-  let commonElements = [];
-
+  let result = [];
   for (const number1 of arr1) {
     for (const number2 of arr2) {
       if (number1 === number2) {
-        commonElements.push(number1);
+        result.push(number1);
       }
     }
   }
-  return commonElements;
+  return result;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 11];
 // const list2 = [2, 6, 7, 8, 9, 0, 11];
@@ -76,20 +73,19 @@ function commonElements(arr1, arr2) {
 
 // Return common elements and how many times they are present
 function commonElements2(arr1, arr2) {
-  let dict = {};
-
+  let result = {};
   for (const number1 of arr1) {
     for (const number2 of arr2) {
       if (number1 === number2) {
-        if (number1 in dict) {
-          dict[number1]++;
+        if (number1 in result) {
+          result[number1]++;
         } else {
-          dict[number1] = 1;
+          result[number1] = 1;
         }
       }
     }
   }
-  return dict;
+  return result;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 7, 1, 1];
 // const list2 = [2, 6, 7, 8, 9, 0, 11, 7, 1, 1];
