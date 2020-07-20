@@ -1,24 +1,30 @@
-// With repetition
-
-function getPermutations(options, length) {
-  const permutations = [];
-
-  if (length === 1) {
-    return options.map((option) => [option]);
+function getPermutations(options) {
+  let permutations = [];
+  if (options.length === 1) {
+    return [options];
   }
+  const partialPermutations = getPermutations(options.slice(1));
+  const firstOption = options[0];
 
-  const partialPermutations = getPermutations(options, length - 1);
+  for (let i = 0; i < partialPermutations.length; i++) {
+    const partialPermutation = partialPermutations[i];
 
-  for (const option of options) {
-    for (const existingPermutation of partialPermutations) {
-      permutations.push([option].concat(existingPermutation));
+    for (let j = 0; j <= partialPermutation.length; j++) {
+      const permutationInFront = partialPermutation.slice(0, j);
+      const permutationAfter = partialPermutation.slice(j);
+      permutations.push(
+        permutationInFront.concat([firstOption], permutationAfter)
+      );
     }
   }
-
   return permutations;
 }
 
-const digits = [1, 2, 3];
-const resultLength = 3;
+const todoListItems = [
+  'Walk the dog',
+  'Ride the bike',
+  'Clean the house',
+  'Take girlfriend out',
+];
 
-console.log(getPermutations(digits, resultLength));
+console.log(getPermutations(todoListItems));

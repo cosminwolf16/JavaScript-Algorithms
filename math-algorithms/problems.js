@@ -1,12 +1,12 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
-  let result = [];
+  let elements = [];
   for (const number of arr) {
     if (number % 2 === 0) {
-      result.push(number);
+      elements.push(number);
     }
   }
-  return result;
+  return elements;
 }
 // console.log(dividedBy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 
@@ -14,7 +14,7 @@ function dividedBy2(arr) {
 function returnPrimes(arr) {
   let primes = [];
   function isPrime(num) {
-    for (let i = 2; i < num; i++) {
+    for (let i = num - 1; i >= 2; i--) {
       if (num % i === 0) {
         return false;
       }
@@ -34,13 +34,13 @@ function returnPrimes(arr) {
 
 // Return how many times a number is present in a list
 function howManyTimesNIsPresent(arr, el) {
-  let result = 0;
+  let times = 0;
   for (const element of arr) {
     if (element === el) {
-      result++;
+      times++;
     }
   }
-  return result;
+  return times;
 }
 // console.log(howManyTimesNIsPresent([1, 1, 3, 4, 5, 6, 7, 8, 8, 1, 3, 5, 1], 1));
 
@@ -57,15 +57,15 @@ function isElPresent(arr, el) {
 
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
-  let result = [];
-  for (const number1 of arr1) {
-    for (const number2 of arr2) {
-      if (number1 === number2) {
-        result.push(number1);
+  let elements = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        elements.push(arr1[i]);
       }
     }
   }
-  return result;
+  return elements;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 11];
 // const list2 = [2, 6, 7, 8, 9, 0, 11];
@@ -73,19 +73,19 @@ function commonElements(arr1, arr2) {
 
 // Return common elements and how many times they are present
 function commonElements2(arr1, arr2) {
-  let result = {};
-  for (const number1 of arr1) {
-    for (const number2 of arr2) {
-      if (number1 === number2) {
-        if (number1 in result) {
-          result[number1]++;
+  let dict = {};
+  for (const el1 of arr1) {
+    for (const el2 of arr2) {
+      if (el1 === el2) {
+        if (el1 in dict) {
+          dict[el1]++;
         } else {
-          result[number1] = 1;
+          dict[el1] = 1;
         }
       }
     }
   }
-  return result;
+  return dict;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 7, 1, 1];
 // const list2 = [2, 6, 7, 8, 9, 0, 11, 7, 1, 1];
