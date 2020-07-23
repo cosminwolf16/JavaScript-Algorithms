@@ -1,12 +1,12 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
-  let elements = [];
+  let dividedBy2 = [];
   for (const number of arr) {
     if (number % 2 === 0) {
-      elements.push(number);
+      dividedBy2.push(number);
     }
   }
-  return elements;
+  return dividedBy2;
 }
 // console.log(dividedBy2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]));
 
@@ -53,19 +53,19 @@ function isElPresent(arr, el) {
   }
   return false;
 }
-// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 5));
+// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 9));
 
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
-  let elements = [];
-  for (let i = 0; i < arr1.length; i++) {
-    for (let j = 0; j < arr2.length; j++) {
-      if (arr1[i] === arr2[j]) {
-        elements.push(arr1[i]);
+  let commonElements = [];
+  for (const el1 of arr1) {
+    for (const el2 of arr2) {
+      if (el1 === el2) {
+        commonElements.push(el1);
       }
     }
   }
-  return elements;
+  return commonElements;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 11];
 // const list2 = [2, 6, 7, 8, 9, 0, 11];
