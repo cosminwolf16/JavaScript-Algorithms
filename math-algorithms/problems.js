@@ -14,7 +14,7 @@ function dividedBy2(arr) {
 function returnPrimes(arr) {
   let primes = [];
   function isPrime(num) {
-    for (let i = num - 1; i >= 2; i--) {
+    for (let i = 2; i < num; i++) {
       if (num % i === 0) {
         return false;
       }
@@ -53,15 +53,15 @@ function isElPresent(arr, el) {
   }
   return false;
 }
-// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 9));
+// console.log(isElPresent([1, 2, 3, 4, 5, 6, 7], 5));
 
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
   let commonElements = [];
-  for (const el1 of arr1) {
-    for (const el2 of arr2) {
-      if (el1 === el2) {
-        commonElements.push(el1);
+  for (const number1 of arr1) {
+    for (const number2 of arr2) {
+      if (number1 === number2) {
+        commonElements.push(number1);
       }
     }
   }
