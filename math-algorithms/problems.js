@@ -1,9 +1,9 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
   let dividedBy2 = [];
-  for (const number of arr) {
-    if (number % 2 === 0) {
-      dividedBy2.push(number);
+  for (const element of arr) {
+    if (element % 2 === 0) {
+      dividedBy2.push(element);
     }
   }
   return dividedBy2;
@@ -21,6 +21,7 @@ function returnPrimes(arr) {
     }
     return true;
   }
+
   for (const number of arr) {
     if (isPrime(number)) {
       primes.push(number);
@@ -58,10 +59,10 @@ function isElPresent(arr, el) {
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
   let commonElements = [];
-  for (const number1 of arr1) {
-    for (const number2 of arr2) {
-      if (number1 === number2) {
-        commonElements.push(number1);
+  for (el1 of arr1) {
+    for (el2 of arr2) {
+      if (el1 === el2) {
+        commonElements.push(el1);
       }
     }
   }
