@@ -1,9 +1,9 @@
 // Divided by 2 algorithm
 function dividedBy2(arr) {
   let dividedBy2 = [];
-  for (let el of arr) {
-    if (el % 2 === 0) {
-      dividedBy2.push(el);
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] % 2 === 0) {
+      dividedBy2.push(arr[index]);
     }
   }
   return dividedBy2;
@@ -14,16 +14,16 @@ function dividedBy2(arr) {
 function returnPrimes(arr) {
   let primes = [];
   function isPrime(num) {
-    for (let i = num - 1; i >= 2; i--) {
-      if (num % i === 0) {
+    for (let index = num - 1; index >= 2; index--) {
+      if (num % index === 0) {
         return false;
       }
     }
     return true;
   }
-  for (let el of arr) {
-    if (isPrime(el)) {
-      primes.push(el);
+  for (let index = 0; index < arr.length; index++) {
+    if (isPrime(arr[index])) {
+      primes.push(arr[index]);
     }
   }
   return primes;
@@ -34,19 +34,19 @@ function returnPrimes(arr) {
 
 // Return how many times a number is present in a list
 function howManyTimesNIsPresent(arr, el) {
-  let times = 0;
-  for (let element of arr) {
-    if (element === el) {
-      times++;
+  let count = 0;
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] === el) {
+      count++;
     }
   }
-  return times;
+  return count;
 }
 // console.log(howManyTimesNIsPresent([1, 1, 3, 4, 5, 6, 7, 8, 8, 1, 3, 5, 1], 7));
 
 // Return true or false if a number is present in a list or not
 function isElPresent(arr, el) {
-  for (let element of arr) {
+  for (const element of arr) {
     if (element === el) {
       return true;
     }
@@ -58,8 +58,8 @@ function isElPresent(arr, el) {
 // Return common elements from two lists
 function commonElements(arr1, arr2) {
   let commonElements = [];
-  for (let el1 of arr1) {
-    for (let el2 of arr2) {
+  for (const el1 of arr1) {
+    for (const el2 of arr2) {
       if (el1 === el2) {
         commonElements.push(el1);
       }
@@ -73,19 +73,19 @@ function commonElements(arr1, arr2) {
 
 // Return common elements and how many times they are present
 function commonElements2(arr1, arr2) {
-  let dict = {};
+  let entries = {};
   for (const el1 of arr1) {
     for (const el2 of arr2) {
       if (el1 === el2) {
-        if (el1 in dict) {
-          dict[el1]++;
+        if (el1 in entries) {
+          entries[el1]++;
         } else {
-          dict[el1] = 1;
+          entries[el1] = 1;
         }
       }
     }
   }
-  return dict;
+  return entries;
 }
 // const list1 = [1, 2, 3, 4, 5, 6, 7, 7, 1, 1];
 // const list2 = [2, 6, 7, 8, 9, 0, 11, 7, 1, 1];
